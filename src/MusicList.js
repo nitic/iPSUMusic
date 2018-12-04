@@ -13,15 +13,16 @@ import {
 	Icon
 } from 'native-base';
 
+const initialStates = {
+	isReady: false,
+	data: []
+}
+
 export default class MusicList extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			isReady: false,
-			data: []
-		}
-		this._handlePressViewDetail = this._handlePressViewDetail.bind(this);
+		this.state = initialStates;
 	}	
 
 	static navigationOptions = {
@@ -46,24 +47,6 @@ export default class MusicList extends React.Component {
       });
 	}
 
-	_handlePressViewDetail(itemId) {
-		fetch(`http://localhost:3000/results/${itemId}`)
-			.then(response => response.json())
-			.then(jsonData => {
-				let genresName = [];
-				jsonData.genres.forEach(value => {
-					genresName.push(value.name);
-				});
-				const data = {
-					songTitle: jsonData.name,
-					songImage: jsonData.artworkUrl100,
-					album: jsonData.collectionName,
-					genres: genresName
-				}
-				this.props.navigation.navigate('Detail', data);
-			});		
-	}
-
 	render() {
 		const { data, isReady } = this.state;
 
@@ -77,7 +60,7 @@ export default class MusicList extends React.Component {
             {
               data.map((value, index) => {
                 return (
-                  <ListItem key={index} thumbnail onPress={() => this._handlePressViewDetail(value.id)}>
+                  <ListItem key={index} thumbnail>
                     <Left>
                       <Thumbnail square source={{ uri: value.artworkUrl100 }} />
                     </Left>
