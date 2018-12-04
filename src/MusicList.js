@@ -39,24 +39,6 @@ export default class MusicList extends React.Component {
       });
 	}
 
-	_handlePressViewDetail(itemId) {
-		fetch(`http://localhost:3000/results/${itemId}`)
-			.then(response => response.json())
-			.then(jsonData => {
-				let genresName = [];
-				jsonData.genres.forEach(value => {
-					genresName.push(value.name);
-				});
-				const data = {
-					songTitle: jsonData.name,
-					songImage: jsonData.artworkUrl100,
-					album: jsonData.collectionName,
-					genres: genresName
-				}
-				this.props.navigation.navigate('Detail', data);
-			});		
-	}
-
 	render() {
 		const { data, isReady } = this.state;
 
@@ -75,7 +57,6 @@ export default class MusicList extends React.Component {
 										musicName={value.name}
 										musicImageURI={value.artworkUrl100}
 										artistName={value.artistName}
-										onPress={() => this._handlePressViewDetail(value.id)}
 									/>
                 )
               })
