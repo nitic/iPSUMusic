@@ -5,6 +5,7 @@ import {
 	Spinner
 } from 'native-base';
 import MusicItem from './MusicItem';
+import _ from 'lodash';
 
 const initialStates = {
 	isReady: false,
@@ -31,9 +32,10 @@ export default class MusicList extends React.Component {
 		await fetch('http://localhost:3000/results')
       .then(response => response.json())
       .then(jsonData => {
+        const data = _.orderBy(jsonData, ['name'], ['asc'])
         this.setState({ 
 					isReady: true,
-					data: jsonData 
+					data: data
 				})
        })
       .catch((error) => {
