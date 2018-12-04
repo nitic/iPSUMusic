@@ -5,12 +5,10 @@
  * @format
  * @flow
  */
-
 import React, {Component} from 'react';
-import AppNavigator from './AppNavigator'
+import AppNavigator from './src/AppNavigator';
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
       <AppNavigator />
