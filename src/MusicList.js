@@ -4,16 +4,18 @@ import {
 	List,
 	Spinner
 } from 'native-base';
+import MusicItem from './MusicItem';
+
+const initialStates = {
+	isReady: false,
+	data: []
+}
 
 export default class MusicList extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			isReady: false,
-			data: []
-		}
-		this._handlePressViewDetail = this._handlePressViewDetail.bind(this);
+		this.state = initialStates;
 	}	
 
 	static navigationOptions = {
