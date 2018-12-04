@@ -1,15 +1,12 @@
 import React from 'react';
 import { View } from 'react-native';
 import {
-	Container,
-	Header,
 	Content,
 	List,
 	ListItem,
 	Left,
 	Body,
 	Right,
-	Button,
 	Text,
 	Thumbnail,
 	Spinner,
@@ -26,6 +23,10 @@ export default class MusicList extends React.Component {
 		}
 		this._handlePressViewDetail = this._handlePressViewDetail.bind(this);
 	}	
+
+	static navigationOptions = {
+    title: 'Music List'
+  };
 
 	componentDidMount() {
 		this.fetchData();
@@ -67,34 +68,34 @@ export default class MusicList extends React.Component {
 		const { data, isReady } = this.state;
 
 		return (
-			<Container>
-				<Content>
-					{
-						!isReady ? <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Spinner /></View> : (
-							<List>
-							{
-								data.map((value, index) => {
-									return (
-										<ListItem key={index} thumbnail onPress={() => this._handlePressViewDetail(value.id)}>
-											<Left>
-												<Thumbnail square source={{ uri: value.artworkUrl100 }} />
-											</Left>
-											<Body>
-												<Text>{value.name}</Text>
-												<Text note numberOfLines={1}>{value.artistName}</Text>
-											</Body>
-											<Right>
-												<Icon type="FontAwesome" name="chevron-right" />
-											</Right>
-										</ListItem>
-									)
-								})
-							}						
-							</List>
-						)
-					}					
-				</Content>
-			</Container>
+      <Content>
+        {
+          !isReady ? (            
+            <Spinner color="red" />
+          ) : (
+            <List>
+            {
+              data.map((value, index) => {
+                return (
+                  <ListItem key={index} thumbnail onPress={() => this._handlePressViewDetail(value.id)}>
+                    <Left>
+                      <Thumbnail square source={{ uri: value.artworkUrl100 }} />
+                    </Left>
+                    <Body>
+                      <Text>{value.name}</Text>
+                      <Text note>{value.artistName}</Text>
+                    </Body>
+                    <Right>
+                      <Icon type="SimpleLineIcons" name="arrow-right" />
+                    </Right>
+                  </ListItem>
+                )
+              })
+            }						
+            </List>
+          )
+        }					
+      </Content>
 		)
 	}
 }
