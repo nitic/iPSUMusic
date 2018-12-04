@@ -3,14 +3,7 @@ import { View } from 'react-native';
 import {
 	Content,
 	List,
-	ListItem,
-	Left,
-	Body,
-	Right,
-	Text,
-	Thumbnail,
-	Spinner,
-	Icon
+	Spinner
 } from 'native-base';
 
 export default class MusicList extends React.Component {
@@ -77,18 +70,13 @@ export default class MusicList extends React.Component {
             {
               data.map((value, index) => {
                 return (
-                  <ListItem key={index} thumbnail onPress={() => this._handlePressViewDetail(value.id)}>
-                    <Left>
-                      <Thumbnail square source={{ uri: value.artworkUrl100 }} />
-                    </Left>
-                    <Body>
-                      <Text>{value.name}</Text>
-                      <Text note>{value.artistName}</Text>
-                    </Body>
-                    <Right>
-                      <Icon type="SimpleLineIcons" name="arrow-right" />
-                    </Right>
-                  </ListItem>
+                  <MusicItem 
+										key={index}
+										musicName={value.name}
+										musicImageURI={value.artworkUrl100}
+										artistName={value.artistName}
+										onPress={() => this._handlePressViewDetail(value.id)}
+									/>
                 )
               })
             }						
