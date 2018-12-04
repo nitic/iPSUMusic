@@ -1,5 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import { 
+	StyleSheet
+} from 'react-native';
 import {
 	Content,
 	List,
@@ -60,7 +62,7 @@ export default class MusicList extends React.Component {
             {
               data.map((value, index) => {
                 return (
-                  <ListItem key={index} thumbnail>
+                  <ListItem key={index} thumbnail style={styles.item}>
                     <Left>
                       <Thumbnail square source={{ uri: value.artworkUrl100 }} />
                     </Left>
@@ -82,3 +84,9 @@ export default class MusicList extends React.Component {
 		)
 	}
 }
+
+const styles = StyleSheet.create({
+	item: {
+		backgroundColor: '#FFFFFF'
+	}
+})
