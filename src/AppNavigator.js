@@ -1,9 +1,11 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import MusicList from './MusicList';
+import MusicDetail from './MusicDetail';
 
 const AppNavigator = createStackNavigator(
   {
-    List: { screen: MusicList }
+    List: { screen: MusicList },
+    Detail: { screen: MusicDetail}
   },
   {
     initialRouteName: 'List',

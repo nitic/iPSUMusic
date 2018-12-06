@@ -58,7 +58,7 @@ export default class MusicList extends React.Component {
 					genres: genresName
 				}
 				this.props.navigation.navigate('Detail', data);
-			});		
+			});
 	}
 
 	render() {
