@@ -43,8 +43,8 @@ export default class MusicList extends React.Component {
       });
 	}
 
-	_handlePressViewDetail(itemId) {
-		fetch(`http://localhost:3000/results/${itemId}`)
+	async _handlePressViewDetail(itemId) {
+		await fetch(`http://localhost:3000/results/${itemId}`)
 			.then(response => response.json())
 			.then(jsonData => {
 				let genresName = [];
