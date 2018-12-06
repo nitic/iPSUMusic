@@ -1,9 +1,9 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import MusicList from './MusicList';
 
-export default createStackNavigator(
+const AppNavigator = createStackNavigator(
   {
-    List: { screen: MusicList },
+    List: { screen: MusicList }
   },
   {
     initialRouteName: 'List',
@@ -18,3 +18,4 @@ export default createStackNavigator(
     },
   }
 );
+export default createAppContainer(AppNavigator);
