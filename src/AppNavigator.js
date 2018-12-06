@@ -7,7 +7,7 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'List',
-    navigationOptions: {
+    defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: '#ff7675',
       },
