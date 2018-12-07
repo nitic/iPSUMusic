@@ -6,6 +6,7 @@
  * @flow
  */
 import React, {Component} from 'react';
+import { Platform } from 'react-native';
 import {
   Container,
   Header,
@@ -21,7 +22,7 @@ export default class App extends Component {
       <Container>
         <Header>
           <Body>
-            <Text>Color List</Text>
+            <Text style={{ color:  Platform.OS === 'android' && '#FFF' }}>Color List</Text>
           </Body>
         </Header>
         <Content>
