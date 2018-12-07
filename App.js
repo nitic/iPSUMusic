@@ -6,12 +6,28 @@
  * @flow
  */
 import React, {Component} from 'react';
-import AppNavigator from './src/AppNavigator';
+import {
+  Container,
+  Header,
+  Body,
+  Text,
+  Content
+} from 'native-base';
+import ColorList from './src/ColorList';
 
 export default class App extends Component {  
   render() {
     return (
-      <AppNavigator />
+      <Container>
+        <Header>
+          <Body>
+            <Text>Color List</Text>
+          </Body>
+        </Header>
+        <Content>
+          <ColorList />
+        </Content>
+      </Container>
     );
   }
 }
