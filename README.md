@@ -4,6 +4,7 @@
 * [https://github.com/typicode/json-server](https://github.com/typicode/json-server)
 * slide https://bit.ly/2zM9Yh1
 * [https://nativebase.io] native base (mobile ui for native)
+* [https://lodash.com] lodash (sorting, finding, query json data or array)
 
 # Workshop Step
 
